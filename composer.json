@@ -1,0 +1,26 @@
+{
+    "name": "scancode/portal-api-module",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\PortalApi\\Providers\\PortalApiServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\PortalApi\\": ""
+        }
+    },
+    "type": "laravel-module"
+}

@@ -1,0 +1,14 @@
+{
+    "name": "PortalApi",
+    "alias": "portalapi",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\PortalApi\\Providers\\PortalApiServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

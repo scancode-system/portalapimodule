@@ -16,7 +16,7 @@ class SettingService
 		$event_settings = $event->event_settings;
 		foreach ($event_settings as $event_setting) {
 			$settings->push([
-				'portal_service' => $event_setting->setting->module,
+				'portal_service' => $event_setting->setting->import,
 				'data' => $event_setting->configurable 
 			]);
 		}

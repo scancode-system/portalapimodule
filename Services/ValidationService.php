@@ -17,7 +17,7 @@ class ValidationService
 		$event_validations = $event->event_validations;
 		foreach ($event_validations as $event_validation) {
 			$validations->push([
-				'portal_service' => $event_validation->validation->module_name,
+				'portal_service' => $event_validation->validation->import,
 				'data' => null 
 			]);
 		}

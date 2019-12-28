@@ -12,8 +12,13 @@ class ImageService
 		$images = collect([]);
 		
 		$images->push([
-			'portal_service' => 'Image',
-			'data' => null
+			'portal_service' => 'Product@images',
+			'data' => 'token/images/produtos/'
+		]);
+
+		$images->push([
+			'portal_service' => 'Dashboard@logo',
+			'data' => 'token/images/logo/logo.png'
 		]);
 
 		return $images;

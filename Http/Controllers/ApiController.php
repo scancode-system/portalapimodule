@@ -18,9 +18,9 @@ class ApiController extends Controller
     {
         $response = collect([]);
 
-        $response = $response->merge((new SettingService())->settings($event));
-        $response = $response->merge((new ImageService())->images($event));
-        $response = $response->merge((new ValidationService())->validations($event));
+        $response['settings'] = (new SettingService())->settings($event);
+        $response['images'] = (new ImageService())->images($event);
+        $response['validations'] = (new ValidationService())->validations($event);
 
         return $response;
     }

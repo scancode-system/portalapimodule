@@ -18,7 +18,7 @@ class ValidationService
 		foreach ($event_validations as $event_validation) {
 			$validations->push([
 				'portal_service' => $event_validation->validation->import,
-				'data' => null 
+				'data' => 'token/'.$event_validation->validation->alias.'.xlsx'
 			]);
 		}
 

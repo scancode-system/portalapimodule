@@ -5,6 +5,7 @@ namespace Modules\PortalApi\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\PortalApi\Services\CompanyService;
 use Modules\PortalApi\Services\SettingService;
 use Modules\PortalApi\Services\ImageService;
 use Modules\PortalApi\Services\ValidationService;
@@ -18,6 +19,7 @@ class ApiController extends Controller
     {
         $response = collect([]);
 
+        $response['company'] = (new CompanyService())->settings($event);
         $response['settings'] = (new SettingService())->settings($event);
         $response['images'] = (new ImageService())->images($event);
         $response['validations'] = (new ValidationService())->validations($event);

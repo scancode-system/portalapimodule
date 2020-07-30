@@ -8,6 +8,16 @@ use Illuminate\Database\Eloquent\Factory;
 class PortalApiServiceProvider extends ServiceProvider
 {
     /**
+     * @var string $moduleName
+     */
+    protected $moduleName = 'PortalApi';
+
+    /**
+     * @var string $moduleNameLower
+     */
+    protected $moduleNameLower = 'portalapi';
+
+    /**
      * Boot the application events.
      *
      * @return void

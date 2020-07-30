@@ -12,6 +12,9 @@ use Modules\PortalApi\Services\ValidationService;
 use Modules\PortalApi\Services\DownloadService;
 use Modules\Portal\Entities\Event;
 
+use Illuminate\Support\Facades\Storage;
+use  ZipArchive;
+
 class ApiController extends Controller
 {
 
@@ -37,6 +40,17 @@ class ApiController extends Controller
         } else {
             return response()->download($path)->deleteFileAfterSend(true);
         }
+    }
+
+    public function pos(Request $request, Event $event){
+        Storage::putFileAs('companies/'.$event->company->id.'/'.$event->id.'/pos', $request->file('attachment'), 'arquivos');
+        $zip = new ZipArchive;
+        if ($zip->open(storage_path('app/companies/'.$event->company->id.'/'.$event->id.'/pos/arquivos')) === TRUE) {
+            $zip->extractTo(storage_path('app/companies/'.$event->company->id.'/'.$event->id.'/pos/'));
+            $zip->close();
+        } 
+        Storage::delete('companies/'.$event->company->id.'/'.$event->id.'/pos/arquivos');
+        return '';
     }
 
 

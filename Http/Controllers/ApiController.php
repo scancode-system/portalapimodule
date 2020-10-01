@@ -50,7 +50,10 @@ class ApiController extends Controller
             $zip->close();
         } 
         Storage::delete('companies/'.$event->company->id.'/'.$event->id.'/pos/arquivos');
-        return '';
+        date_default_timezone_set('America/Sao_Paulo');
+        $event->sync = \Carbon\Carbon::now();
+        $event->save();
+        return ['sync' => $event->sync];
     }
 
 
